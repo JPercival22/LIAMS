@@ -1,0 +1,192 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #020101;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 94vh;
+}
+
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.intro-screen button {
+  padding: 20px 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ff0000, #ff8c00, #ffea00);
+  color: black;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+.intro-screen button:hover {
+  filter: brightness(0.8);
+}
+
+.bttf-hero-image {
+  background-image: url(/Images/bttf.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 450px;
+  height: 670px;
+}
+
+.bttf-title,
+.subtitle {
+  font-size: 60px;
+  font-weight: 900;
+  text-transform: uppercase;
+  display: inline-block;
+
+  /* Gradient fill */
+  background: linear-gradient(180deg, #ff0000, #ff8c00, #ffea00);
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  /* REQUIRED for gradient to show */
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  /* Reverse italics */
+  transform: skewX(-12deg);
+
+  /* Ensures the gradient isn't blocked by parent backgrounds */
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+/* Prevent the white box from covering the gradient */
+.centered-hero h1 {
+  background-color: transparent;
+  margin: 0;
+}
+
+.subtitle {
+  color: #333;
+  font-size: 16px;
+  margin-top: 5px;
+  letter-spacing: 0.9px;
+  text-align: center;
+}
+
+.centered-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 10px;
+  opacity: 0; /* start hidden */
+}
+
+.centered-hero.start-animation {
+  animation: fadeIn 30s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ------------------------------ */
+/*      SUBSCRIBE POPUP           */
+/* ------------------------------ */
+
+.subscribe-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.subscribe-popup.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup-box {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  animation: shake 0.4s ease;
+
+  /* Needed so the button can run around inside */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Popup text */
+.popup-box h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.popup-box p {
+  margin: 0 0 20px;
+  font-size: 18px;
+}
+
+/* Close button (will run away later) */
+.popup-box button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+
+  /* Make it movable */
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: left 0.2s ease, top 0.2s ease;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  75% {
+    transform: translateX(-8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
